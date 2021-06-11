@@ -22,6 +22,12 @@ const kResultsTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const kPrincipalTextStyle = TextStyle(
+  color: Color(0xFFD3D3D3),
+  fontSize: 14.0,
+  fontWeight: FontWeight.normal,
+);
+
 const kTextFieldInputDecoration = InputDecoration(
   filled: false,
   hintText: 'Enter your principal',

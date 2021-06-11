@@ -172,6 +172,11 @@ class _InputPageState extends State<InputPage> {
                 builder: (context) {
                   return ResultsPage(
                     compInterest: calc.calculateInterest(),
+                    totalAccrued: calc.calculateTotalAccrued(principal),
+                    years: time,
+                    principal: principal,
+                    rate: rate,
+                    // currentPrincipal: calc.calculateSimpleInterest(principal),
                   );
                 },
               ));
