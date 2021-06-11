@@ -1,6 +1,6 @@
-# compund_interest
+# Compound Interest
 
-A new Flutter project.
+A new Flutter project by a coding noob 😢
 
 ## Getting Started
 
