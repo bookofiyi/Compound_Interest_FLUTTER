@@ -1,4 +1,4 @@
-# Compound Interest
+# Compound Interest App (Flutter)
 
 A new Flutter project by a coding noob 😢
 
