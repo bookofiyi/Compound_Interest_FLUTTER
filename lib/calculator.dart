@@ -46,23 +46,29 @@ class CalculatorBrain {
 
   Widget drawTable(double tempAccrued, int rate) {
     // tempAccrued is implying the principal here
+    List<Widget> children = [];
+
     for (int i = 1; i <= time; i++) {
-      principal = tempAccrued.toInt();
-      double _interest = (principal * rate * 1) / 100;
+
+      double _interest = (this.principal * rate * i) / 100;
       String theInterest = _interest.toStringAsFixed(2);
-      tempAccrued = _interest + principal;
-      String accrued = tempAccrued.toStringAsFixed(2);
-      return Column(
-        children: [
-          Text(
-            '$i       ₦$principal                  ₦$theInterest                ₦$accrued\n---------------------------------------------------------------------------------------------',
-            style: kPrincipalTextStyle,
-            textAlign: TextAlign.center,
-          ),
-        ],
-      );
+     double anotherTempAccrued = _interest + this.principal;
+     int principal = this.principal;
+    this.principal = anotherTempAccrued.toInt();
+
+      String accrued = anotherTempAccrued.toStringAsFixed(2);
+     children.add(  Text(
+       '$i       ₦$principal                  ₦$theInterest                ₦$accrued\n---------------------------------------------------------------------------------------------',
+       style: kPrincipalTextStyle,
+       textAlign: TextAlign.center,
+     ),);
+      // return Column(
+      //   children: [
+      //
+      //   ],
+      // );
     }
-    return Text('done');
+    return Column(children: children,);
   }
 
   // Widget calculateSimpleInterest(int i, int initialPrincipal, int rate) {

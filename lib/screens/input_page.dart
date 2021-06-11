@@ -67,6 +67,7 @@ class _InputPageState extends State<InputPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
                     children: [
                       Text(
                         rate.toString(),
@@ -118,6 +119,7 @@ class _InputPageState extends State<InputPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.ideographic,
                     children: [
                       Text(
                         time.toString(),
@@ -162,6 +164,7 @@ class _InputPageState extends State<InputPage> {
           ),
           BottomButton(
             onTap: () {
+
               CalculatorBrain calc = CalculatorBrain(
                 rate: rate,
                 principal: principal,
