@@ -18,16 +18,10 @@ class ResultsPage extends StatelessWidget {
   int principal;
   final int rate;
 
-
-
   @override
-
   Widget build(BuildContext context) {
-    CalculatorBrain calc = CalculatorBrain(
-      principal: principal,
-      rate: rate,
-      time: years
-    );
+    CalculatorBrain calc =
+        CalculatorBrain(principal: principal, rate: rate, time: years);
     return Scaffold(
       appBar: AppBar(
         title: Text('Your Compound Interest'),
