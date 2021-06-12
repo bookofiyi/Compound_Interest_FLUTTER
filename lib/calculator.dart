@@ -10,7 +10,7 @@ class CalculatorBrain {
   int principal;
 
   double _compInterest;
-  double _currentPrincipal;
+  // double _currentPrincipal;
   double _totalAccrued;
   int totalAccrued;
 
@@ -48,27 +48,26 @@ class CalculatorBrain {
     // tempAccrued is implying the principal here
     List<Widget> children = [];
 
+    // this is calculating the simple interest for each year
     for (int i = 1; i <= time; i++) {
-
-      double _interest = (this.principal * rate * i) / 100;
+      double _interest = (this.principal * rate * 1) / 100;
       String theInterest = _interest.toStringAsFixed(2);
-     double anotherTempAccrued = _interest + this.principal;
-     int principal = this.principal;
-    this.principal = anotherTempAccrued.toInt();
+      double anotherTempAccrued = _interest + this.principal;
+      int principal = this.principal;
+      this.principal = anotherTempAccrued.toInt();
 
       String accrued = anotherTempAccrued.toStringAsFixed(2);
-     children.add(  Text(
-       '$i       ₦$principal                  ₦$theInterest                ₦$accrued\n---------------------------------------------------------------------------------------------',
-       style: kPrincipalTextStyle,
-       textAlign: TextAlign.center,
-     ),);
-      // return Column(
-      //   children: [
-      //
-      //   ],
-      // );
+      children.add(
+        Text(
+          '$i       ₦$principal                  ₦$theInterest                ₦$accrued\n---------------------------------------------------------------------------------------------',
+          style: kPrincipalTextStyle,
+          textAlign: TextAlign.center,
+        ),
+      );
     }
-    return Column(children: children,);
+    return Column(
+      children: children,
+    );
   }
 
   // Widget calculateSimpleInterest(int i, int initialPrincipal, int rate) {
