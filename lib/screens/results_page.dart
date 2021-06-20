@@ -89,7 +89,7 @@ class ResultsPage extends StatelessWidget {
                       //   ),
                       // ),
                       Text(
-                        'Yr      Principal        Gained Interest ($rate%)      Total Accrued',
+                        'Yr   |   Principal    |    Gained Interest ($rate%)   |   Total Accrued',
                         style: kPrincipalTextStyle,
                         textAlign: TextAlign.center,
                       ),

@@ -24,21 +24,21 @@ class CalculatorBrain {
     return _totalAccrued.toStringAsFixed(2);
   }
 
-  Widget calculateSimpInterest(int i, int initialPrincipal, int rate) {
-    double _interest = (initialPrincipal * rate * 1) / 100;
-    double _accrued = _interest + initialPrincipal;
-    String totalAccrued = _accrued.toStringAsFixed(2);
-    String gainedInterest = _interest.toStringAsFixed(2);
-    return Column(
-      children: [
-        Text(
-          '$i       ₦$initialPrincipal                  ₦$gainedInterest                ₦$totalAccrued\n---------------------------------------------------------------------------------------------',
-          style: kPrincipalTextStyle,
-          textAlign: TextAlign.center,
-        ),
-      ],
-    );
-  }
+  // Widget calculateSimpInterest(int i, int initialPrincipal, int rate) {
+  //   double _interest = (initialPrincipal * rate * 1) / 100;
+  //   double _accrued = _interest + initialPrincipal;
+  //   String totalAccrued = _accrued.toStringAsFixed(2);
+  //   String gainedInterest = _interest.toStringAsFixed(2);
+  //   return Column(
+  //     children: [
+  //       Text(
+  //         '$i   |    ₦$initialPrincipal         |         ₦$gainedInterest        |        ₦$totalAccrued\n---------------------------------------------------------------------------------------------',
+  //         style: kPrincipalTextStyle,
+  //         textAlign: TextAlign.center,
+  //       ),
+  //     ],
+  //   );
+  // }
 
   int getTotalAccrued() {
     return totalAccrued;
@@ -46,7 +46,8 @@ class CalculatorBrain {
 
   Widget drawTable(double tempAccrued, int rate) {
     // tempAccrued is implying the principal here
-    List<Widget> children = [];
+    List<Widget> rows = []; // This creates an empty List to accommodate each
+    // row of principal breakdown table
 
     // this is calculating the simple interest for each year
     for (int i = 1; i <= time; i++) {
@@ -57,36 +58,30 @@ class CalculatorBrain {
       this.principal = anotherTempAccrued.toInt();
 
       String accrued = anotherTempAccrued.toStringAsFixed(2);
-      children.add(
+      rows.add(
         Text(
-          '$i       ₦$principal                  ₦$theInterest                ₦$accrued\n---------------------------------------------------------------------------------------------',
+          '$i   |    ₦$principal         |         ₦$theInterest       |         ₦$accrued\n---------------------------------------------------------------------------------------------',
           style: kPrincipalTextStyle,
           textAlign: TextAlign.center,
         ),
       );
     }
-    return Column(
-      children: children,
+
+    // return ListView.builder(
+    //   padding: const EdgeInsets.all(8),
+    //   itemCount: rows.length,
+    //   itemBuilder: (BuildContext context, int index) {
+    //     return Container(
+    //       // height: 50,
+    //       child: Center(child: Text('$rows')),
+    //     );
+    //   },
+    // );
+
+    return Expanded(
+      child: ListView(
+        children: rows,
+      ),
     );
   }
-
-  // Widget calculateSimpleInterest(int i, int initialPrincipal, int rate) {
-  //   _compInterest = initialPrincipal * (pow(1 + (rate / 100), i) - 1);
-  //   _currentPrincipal = initialPrincipal + _compInterest;
-  //   String temp = _currentPrincipal.toStringAsFixed(2);
-  //   return Column(
-  //     children: [
-  //       Text(
-  //         'Year  Principal        Interest ($rate%)      Total Accrued',
-  //         style: kPrincipalTextStyle,
-  //         textAlign: TextAlign.center,
-  //       ),
-  //       Text(
-  //         '$i     \n---------------------------------',
-  //         style: kPrincipalTextStyle,
-  //         textAlign: TextAlign.center,
-  //       ),
-  //     ],
-  //   );
-  // }
 }
