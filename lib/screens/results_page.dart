@@ -18,10 +18,10 @@ class ResultsPage extends StatelessWidget {
   int principal;
   final int rate;
 
-  CalculatorBrain calc = CalculatorBrain();
-
   @override
   Widget build(BuildContext context) {
+    CalculatorBrain calc =
+        CalculatorBrain(principal: principal, rate: rate, time: years);
     return Scaffold(
       appBar: AppBar(
         title: Text('Your Compound Interest'),
@@ -89,7 +89,7 @@ class ResultsPage extends StatelessWidget {
                       //   ),
                       // ),
                       Text(
-                        'Yr      Principal        Gained Interest ($rate%)      Total Accrued',
+                        'Yr   |   Principal    |    Gained Interest ($rate%)   |   Total Accrued',
                         style: kPrincipalTextStyle,
                         textAlign: TextAlign.center,
                       ),
