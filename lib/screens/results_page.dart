@@ -47,8 +47,7 @@ class ResultsPage extends StatelessWidget {
                     style: kResultsTextStyle,
                     textAlign: TextAlign.center,
                   ),
-                  Column(
-                    children: [
+
                       // Padding(
                       //   padding: const EdgeInsets.fromLTRB(7, 0, 7, 0),
                       //   child: Row(
@@ -98,8 +97,7 @@ class ResultsPage extends StatelessWidget {
                         style: kPrincipalTextStyle,
                         textAlign: TextAlign.center,
                       ),
-
-                      calc.drawTable(principal.toDouble(), rate)
+                calc.drawTable(principal.toDouble(), rate)
 
                       // for (int i = 1; i <= years; i++)
                       //   {
@@ -111,8 +109,7 @@ class ResultsPage extends StatelessWidget {
                       //   'By the end of Year $i, you will have a total of ₦$currentPrincipal',
                       //   style: kPrincipalTextStyle,
                       // ),
-                    ],
-                  ),
+
                 ],
               ),
             ),

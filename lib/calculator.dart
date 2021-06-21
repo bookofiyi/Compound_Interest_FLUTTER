@@ -80,7 +80,8 @@ class CalculatorBrain {
 
     return Expanded(
       child: ListView(
-        children: rows,
+
+        children: rows
       ),
     );
   }
