@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'constants.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class CalculatorBrain {
   CalculatorBrain({this.principal, this.rate, this.time});
@@ -59,10 +60,12 @@ class CalculatorBrain {
 
       String accrued = anotherTempAccrued.toStringAsFixed(2);
       rows.add(
-        Text(
+        AutoSizeText(
           '$i   |    ₦$principal         |         ₦$theInterest       |         ₦$accrued\n---------------------------------------------------------------------------------------------',
           style: kPrincipalTextStyle,
           textAlign: TextAlign.center,
+          minFontSize: 9.0,
+          maxLines: 2,
         ),
       );
     }
@@ -79,9 +82,7 @@ class CalculatorBrain {
     // );
 
     return Expanded(
-      child: ListView(
-        children: rows,
-      ),
+      child: ListView(children: rows),
     );
   }
 }

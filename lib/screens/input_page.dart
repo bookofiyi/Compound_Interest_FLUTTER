@@ -20,14 +20,15 @@ class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('Compound Interest Calc'),
+        title: Text('Compound Interest Calculator'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            flex: 1,
+            flex: 3,
             child: ReusableCard(
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -164,7 +165,6 @@ class _InputPageState extends State<InputPage> {
           ),
           BottomButton(
             onTap: () {
-
               CalculatorBrain calc = CalculatorBrain(
                 rate: rate,
                 principal: principal,

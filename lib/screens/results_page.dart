@@ -37,82 +37,77 @@ class ResultsPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 25.0),
+                      child: Text(
+                        'Your Compound Interest is ₦$compInterest',
+                        style: kResultsTextStyle,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+
+                  Expanded(
+                    flex: 1,
+                    child: Text(
+                      'At the end of $years year(s), your total money would\'ve grown to be ₦$totalAccrued',
+                      style: kResultsTextStyle,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+
+                  // Padding(
+                  //   padding: const EdgeInsets.fromLTRB(7, 0, 7, 0),
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //     children: [
+                  //       Expanded(
+                  //         flex: 0,
+                  //         child: Text(
+                  //           'Yr',
+                  //           style: kPrincipalTextStyle,
+                  //         ),
+                  //       ),
+                  //       SizedBox(
+                  //         width: 10,
+                  //       ),
+                  //       Expanded(
+                  //         flex: 1,
+                  //         child: Text(
+                  //           'Principal',
+                  //           style: kPrincipalTextStyle,
+                  //         ),
+                  //       ),
+                  //       Expanded(
+                  //         flex: 2,
+                  //         child: Text(
+                  //           'Gained Interest ($rate%)',
+                  //           style: kPrincipalTextStyle,
+                  //         ),
+                  //       ),
+                  //       Expanded(
+                  //         flex: 1,
+                  //         child: Text(
+                  //           'Total Accrued',
+                  //           style: kPrincipalTextStyle,
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                   Text(
-                    'Your Compound Interest is ₦$compInterest',
-                    style: kResultsTextStyle,
+                    'Yr   |   Principal    |    Gained Interest ($rate%)   |   Total Accrued',
+                    style: kPrincipalTextStyle,
                     textAlign: TextAlign.center,
                   ),
                   Text(
-                    'At the end of $years year(s), your total money would\'ve grown to be ₦$totalAccrued',
-                    style: kResultsTextStyle,
+                    '---------------------------------------------------------------------------------------------',
+                    style: kPrincipalTextStyle,
                     textAlign: TextAlign.center,
                   ),
-                  Column(
-                    children: [
-                      // Padding(
-                      //   padding: const EdgeInsets.fromLTRB(7, 0, 7, 0),
-                      //   child: Row(
-                      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //     children: [
-                      //       Expanded(
-                      //         flex: 0,
-                      //         child: Text(
-                      //           'Yr',
-                      //           style: kPrincipalTextStyle,
-                      //         ),
-                      //       ),
-                      //       SizedBox(
-                      //         width: 10,
-                      //       ),
-                      //       Expanded(
-                      //         flex: 1,
-                      //         child: Text(
-                      //           'Principal',
-                      //           style: kPrincipalTextStyle,
-                      //         ),
-                      //       ),
-                      //       Expanded(
-                      //         flex: 2,
-                      //         child: Text(
-                      //           'Gained Interest ($rate%)',
-                      //           style: kPrincipalTextStyle,
-                      //         ),
-                      //       ),
-                      //       Expanded(
-                      //         flex: 1,
-                      //         child: Text(
-                      //           'Total Accrued',
-                      //           style: kPrincipalTextStyle,
-                      //         ),
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
-                      Text(
-                        'Yr   |   Principal    |    Gained Interest ($rate%)   |   Total Accrued',
-                        style: kPrincipalTextStyle,
-                        textAlign: TextAlign.center,
-                      ),
-                      Text(
-                        '---------------------------------------------------------------------------------------------',
-                        style: kPrincipalTextStyle,
-                        textAlign: TextAlign.center,
-                      ),
-
-                      calc.drawTable(principal.toDouble(), rate)
-
-                      // for (int i = 1; i <= years; i++)
-                      //   {
-                      //     calc.calculateSimpInterest(i, principal, rate),
-                      //     principal = calc.getTotalAccrued(),
-                      //   }
-
-                      // Text(
-                      //   'By the end of Year $i, you will have a total of ₦$currentPrincipal',
-                      //   style: kPrincipalTextStyle,
-                      // ),
-                    ],
-                  ),
+                  calc.drawTable(principal.toDouble(), rate)
                 ],
               ),
             ),
