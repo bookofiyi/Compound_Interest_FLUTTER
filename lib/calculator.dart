@@ -64,7 +64,7 @@ class CalculatorBrain {
           '$i   |    ₦$principal         |         ₦$theInterest       |         ₦$accrued\n---------------------------------------------------------------------------------------------',
           style: kPrincipalTextStyle,
           textAlign: TextAlign.center,
-          minFontSize: 9.0,
+          minFontSize: 8.0,
           maxLines: 2,
         ),
       );

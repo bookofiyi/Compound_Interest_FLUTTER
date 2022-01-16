@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:compund_interest/calculator.dart';
 import 'package:flutter/material.dart';
 import 'package:compund_interest/constants.dart';
@@ -15,7 +16,7 @@ class ResultsPage extends StatelessWidget {
   final String compInterest;
   final int years;
   final String totalAccrued;
-  int principal;
+  final int principal;
   final int rate;
 
   @override
@@ -41,71 +42,36 @@ class ResultsPage extends StatelessWidget {
                     flex: 1,
                     child: Padding(
                       padding: const EdgeInsets.only(top: 25.0),
-                      child: Text(
+                      child: AutoSizeText(
                         'Your Compound Interest is ₦$compInterest',
                         style: kResultsTextStyle,
                         textAlign: TextAlign.center,
+                        maxLines: 3,
                       ),
                     ),
                   ),
-
                   Expanded(
                     flex: 1,
-                    child: Text(
-                      'At the end of $years year(s), your total money would\'ve grown to be ₦$totalAccrued',
+                    child: AutoSizeText(
+                      'At the end of $years year(s), your money would\'ve grown to be ₦$totalAccrued',
                       style: kResultsTextStyle,
                       textAlign: TextAlign.center,
+                      maxLines: 4,
                     ),
                   ),
-
-                  // Padding(
-                  //   padding: const EdgeInsets.fromLTRB(7, 0, 7, 0),
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //     children: [
-                  //       Expanded(
-                  //         flex: 0,
-                  //         child: Text(
-                  //           'Yr',
-                  //           style: kPrincipalTextStyle,
-                  //         ),
-                  //       ),
-                  //       SizedBox(
-                  //         width: 10,
-                  //       ),
-                  //       Expanded(
-                  //         flex: 1,
-                  //         child: Text(
-                  //           'Principal',
-                  //           style: kPrincipalTextStyle,
-                  //         ),
-                  //       ),
-                  //       Expanded(
-                  //         flex: 2,
-                  //         child: Text(
-                  //           'Gained Interest ($rate%)',
-                  //           style: kPrincipalTextStyle,
-                  //         ),
-                  //       ),
-                  //       Expanded(
-                  //         flex: 1,
-                  //         child: Text(
-                  //           'Total Accrued',
-                  //           style: kPrincipalTextStyle,
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
-                  Text(
+                  AutoSizeText(
                     'Yr   |   Principal    |    Gained Interest ($rate%)   |   Total Accrued',
                     style: kPrincipalTextStyle,
                     textAlign: TextAlign.center,
+                    minFontSize: 8.0,
+                    maxLines: 1,
                   ),
-                  Text(
+                  AutoSizeText(
                     '---------------------------------------------------------------------------------------------',
                     style: kPrincipalTextStyle,
                     textAlign: TextAlign.center,
+                    minFontSize: 10.0,
+                    maxLines: 1,
                   ),
                   calc.drawTable(principal.toDouble(), rate)
                 ],

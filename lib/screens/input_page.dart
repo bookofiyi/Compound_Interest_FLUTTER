@@ -17,6 +17,21 @@ class _InputPageState extends State<InputPage> {
   int time = 3;
   int principal;
 
+  void showInSnackBar(context, String value) {
+    final snackBar = SnackBar(
+      content: Text(value),
+      backgroundColor: kCardColour,
+      action: SnackBarAction(
+        label: 'DISMISS',
+        textColor: Colors.white,
+        onPressed: () {
+          ScaffoldMessenger.of(context).hideCurrentSnackBar();
+        },
+      ),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +43,7 @@ class _InputPageState extends State<InputPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            flex: 3,
+            flex: 1,
             child: ReusableCard(
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -165,6 +180,9 @@ class _InputPageState extends State<InputPage> {
           ),
           BottomButton(
             onTap: () {
+              if (principal == null) {
+                showInSnackBar(context, 'Principal cannot be empty');
+              }
               CalculatorBrain calc = CalculatorBrain(
                 rate: rate,
                 principal: principal,
